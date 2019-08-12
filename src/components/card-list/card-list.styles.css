@@ -1,0 +1,13 @@
+.class_list{
+    width: 85vw;
+    display: grid;
+    margin: 0 5%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 50px;
+}
+
+.user_card{
+    background: white;
+    padding: 20px;
+    color: #000;
+}

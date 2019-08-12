@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
+import { CardList } from './components/card-list/card-list.component';
 
 // function App() {
 //   return (
@@ -26,36 +27,19 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      cars: [
-        {
-          name: "XUV500",
-          id: 'xuv'
-        },
-        {
-          name: "Skoda laura",
-          id: 'sl345'
-        },
-        {
-          name: "Hyundai i10",
-          id: 'hydi10'
-        },
-        {
-          name: "Honda city",
-          id: 'hcy'
-        }
-      ]
+      users: []
     }
+  }
+  componentDidMount() {
+    fetch('http://jsonplaceholder.typicode.com/users')
+      .then(response => response.json())
+      .then(users => this.setState({ users: users }));
   }
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          {
-            this.state.cars.map(e => <h2 key={e.id}>{e.name}</h2>)
-          }
-          {/* <img src={logo} className="App-logo" alt="logo" />
-          <p> {this.state.greet} </p>
-          <button onClick={() => { this.setState({ greet: 'its working!' }) }}> Change text!</button> */}
+          <CardList card_users={this.state.users} />
         </header>
       </div>
     );
