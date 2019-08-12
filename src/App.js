@@ -3,31 +3,12 @@ import React, { Component } from 'react';
 import './App.css';
 import { CardList } from './components/card-list/card-list.component';
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      users: []
+      users: [],
+      search_query: ''
     }
   }
   componentDidMount() {
@@ -36,10 +17,19 @@ class App extends Component {
       .then(users => this.setState({ users: users }));
   }
   render() {
+    const { users, search_query } = this.state
+    const filterusers = users.filter(user =>
+      user.name.toLowerCase().includes(search_query.toLowerCase())
+    );
+
     return (
       <div className="App">
         <header className="App-header">
-          <CardList card_users={this.state.users} />
+          <input
+            type='text'
+            placeholder='search users'
+            onChange={e => this.setState({ search_query: e.target.value })} />
+          < CardList card_users={filterusers} />
         </header>
       </div>
     );

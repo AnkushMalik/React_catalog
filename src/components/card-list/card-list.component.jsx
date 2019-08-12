@@ -7,9 +7,7 @@ export const CardList = props => (
         {
             props.card_users.map(e => (
                 <Card key={e.id} user={e} />
-                // <h2 className='user_card' key={e.id}>{e.name}</h2>
             ))
         }
     </div>
-    // return <div className='class_list'>{props.children}</div>
 );
