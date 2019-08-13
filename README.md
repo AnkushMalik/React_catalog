@@ -26,6 +26,9 @@ The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### preview:
+![catalog](https://user-images.githubusercontent.com/13421233/62920911-b803b080-bdc4-11e9-947f-2d9efba1f868.gif)
+___
 
 ### `npm run eject`
 
